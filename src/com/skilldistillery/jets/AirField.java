@@ -3,6 +3,7 @@
 
 package com.skilldistillery.jets;
 
+import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +22,19 @@ public class AirField {
 	private List<Jet> jets;
 	
 	public AirField() {
-		jets = new ArrayList<>();
-		
-	
+		jets = new ArrayList<>();	// create a new list of jets
+
+		 
 	}
-}
+		  public List<Jet> run() {     // populate the list with 5 jets from the Jets.txt file
+
+		    for (int i = 0; i < 5; i++) {
+		      jets.add((null)); // TODO: null needs to be some way of reading name from Jets.txt
+		    }
+
+		    return jets;
+		  }
+		
+
+	}
+
