@@ -16,4 +16,18 @@ public abstract class Jet {
 		}
 		
 		
+		public void fly() {
+			
+//			fly() prints out the jet details and the amount of time the jet 
+//			can fly until it runs out of fuel (based on speed and range).
+
+			System.out.println(model);
+			System.out.println(speed);
+			System.out.println(range);
+//			System.out.println(price);
+			System.out.println("Maximum Flight Time: " + (range / speed) + " hours");
+			
+			
+		}
+		
 }

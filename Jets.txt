@@ -1,0 +1,6 @@
+manufacturer, nomenclature, model, speed, range, price
+Lockheed Martin, F22, Raptor, 1500, 1841, 150_000_000
+Boeing, F/A-18E/F, Superhornet, 1190, 1275, 70_500_000
+Grumman, F-14, Tomcat, 1544, 580, 38_000_000
+General Dynamics, F-16, Fighting Falcon, 915, 339, 14_600_000
+McDonnell Douglas, F-16, Eagle, 1650, 1221, 27_900_000
