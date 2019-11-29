@@ -17,7 +17,9 @@ import java.util.Scanner;
 public class JetsApplication {
 
 	public static void main(String[] args) {		//USER STORY 1
-
+		AirField.readNodesIntoList(null);
+//		listGenerator.listGenerator();
+		
 		// USER STORY 4
 		System.out.println("1. List Fleet ");
 		System.out.println("2. Fly all jets ");
@@ -61,8 +63,12 @@ public class JetsApplication {
 		}
 	}
 
-	private static void listFleet() {
+	public static void listFleet() {
 
+		for (int j = 0; j < AirField.atAirField.size(); j++) {
+			AirField.atAirField.get(j).fly();
+		}
+		
 	}
 
 	private static void flyAllJets() {
