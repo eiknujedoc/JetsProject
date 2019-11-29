@@ -27,14 +27,12 @@ public class AirField {
 //	public List<Jet> run() { // populate the list with 5 jets from the Jets.txt file
 
 	public static List<Jet> atAirField = new ArrayList<>(); // create a new list of Jet objects located at AirField
-	
+
 	private static List<String> jets = new ArrayList<>(); // create a new list of strings
 
 	private static String[] anArrayofStrings = new String[5]; // create an array of strings contained in the list
 
-	
-
-	public static void readNodesIntoList(Jet Jet) {
+	protected static void listAirCraftatAirField(Jet Jet) {
 		int numLines = 0;
 		BufferedReader reader = null;
 		try {
@@ -47,13 +45,13 @@ public class AirField {
 				String[] split = anArrayofStrings[numLines].split("\t");
 				System.out.println(anArrayofStrings[numLines]);
 				System.out.println(split[0]);
-				
+
 				int id = Integer.parseInt(split[0]);
 				String model = split[1];
 				int speed = Integer.parseInt(split[2]);
 				int range = Integer.parseInt(split[3]);
 				int price = Integer.parseInt(split[4]);
-					Jet Fighter = new FighterJet(id, model, speed, range, price);
+				Jet Fighter = new FighterJet(id, model, speed, range, price);
 				atAirField.add(Fighter);
 				System.out.println(atAirField);
 
@@ -65,7 +63,6 @@ public class AirField {
 			}
 			reader.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 
