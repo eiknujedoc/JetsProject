@@ -136,10 +136,28 @@ public class JetsApplication {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Select a hangar number to remove from FLEET:_");
 		listFleet();
+		
 		try {
-//			int userSelection = input.nextInt();
-			AirField.atAirField.remove((input.nextInt() - 1));
-		}
+			int removalSelection = (input.nextInt() - 1);
+			if(removalSelection > (AirField.atAirField.size()) | removalSelection <= 1) {
+			System.out.println("INVALID SELECTION");
+			System.out.println("Returning to FLEET MENU");
+			menu();
+			}
+			else {
+				Jet removed = AirField.atAirField.get(removalSelection);
+			System.out.println("Remove " + removed.model + " from FLEET?_ \n\nTHIS CAN NOT BE UNDONE.\n\n TYPE 'YES' TO CONFIRM.");
+			String confirm = input.next();
+			if (confirm.equals("YES")) {
+			AirField.atAirField.remove(removalSelection);
+			System.out.println("Removed " + removed.model + " from FLEET.");
+			menu();
+			}
+			else {
+				menu();
+			}
+			}
+			}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
