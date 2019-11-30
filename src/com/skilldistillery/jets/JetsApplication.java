@@ -17,10 +17,11 @@ public class JetsApplication {
 	public static void main(String[] args) { // USER STORY 1
 		AirField.listFighterJetatAirField(null);
 		AirField.listCargoJetatAirField(null);
-//		listGenerator.listGenerator();
+		menu();
 
+	}
 		// USER STORY 4
-
+	public static void menu() {	
 		boolean running = true;
 		do {
 
@@ -67,7 +68,7 @@ public class JetsApplication {
 		} while (running = true);
 	}
 
-	public static void listFleet() {
+	protected static void listFleet() {
 
 		for (int j = 0; j < AirField.atAirField.size(); j++) {
 			AirField.atAirField.get(j).radioCheck(); // Lets have each jet list itself.
@@ -130,8 +131,25 @@ public class JetsApplication {
 //		User Story #10
 //
 //		A user can remove a jet from the fleet.
-//
 //		The user is presented with a sub-menu to select a jet to delete by number.
+//		
+		Scanner input = new Scanner(System.in);
+		System.out.println("Select a hangar number to remove from FLEET:_");
+		listFleet();
+		try {
+//			int userSelection = input.nextInt();
+			AirField.atAirField.remove((input.nextInt() - 1));
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			System.out.println("Returning to FLEET MENU");
+			
+		}
+		
+		
+		
 //		Stretch Goal: a user can remove a jet (or jets) by name.
 
 	}
