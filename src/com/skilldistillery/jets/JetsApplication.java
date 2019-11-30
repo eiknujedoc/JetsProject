@@ -15,7 +15,8 @@ import java.util.Scanner;
 public class JetsApplication {
 
 	public static void main(String[] args) { // USER STORY 1
-		AirField.listAirCraftatAirField(null);
+		AirField.listFighterJetatAirField(null);
+		AirField.listCargoJetatAirField(null);
 //		listGenerator.listGenerator();
 
 		// USER STORY 4
@@ -100,7 +101,7 @@ public class JetsApplication {
 	}
 
 	private static void loadAllCargoJets() {
-
+	
 	}
 
 	private static void dogFightJets() {
@@ -109,13 +110,16 @@ public class JetsApplication {
 		}
 	}
 
-	private static void addFleetJet() {
+	 private static void addFleetJet() {
 
 //		User Story #9
 //
 //		A user can add custom jets to the fleet.
 //
 //		This can be a JetImpl.
+		FighterJet generic = new FighterJet("GENERIC", "Some_Fighter", 200, 400, 100000);
+		AirField.atAirField.add(generic);
+		
 //		Stretch Goal: This leads to a sub-menu where the user chooses the type of Jet.
 //		Users then enter information for the Jet, and it is added to the AirField.
 

@@ -7,13 +7,13 @@ import java.text.DecimalFormat;
 
 public abstract class Jet {
 
-	private int id;
-	private String model;
+	private String id;
+	protected String model;
 	private double speed;
 	private int range;
 	private long price;
 
-	public Jet(int id, String model, double speed, int range, long price) {
+	public Jet(String id, String model, double speed, int range, long price) {
 		super();
 		this.id = (id);
 		this.model = (model);
@@ -37,6 +37,7 @@ public abstract class Jet {
 		System.out.println(speed);
 		System.out.println(range);
 		System.out.println(price);
+		System.out.println();
 		
 	}
 
