@@ -163,16 +163,44 @@ public class JetsApplication {
 //		A user can add custom jets to the fleet.
 //
 //		This can be a JetImpl.
-		System.out.println("CONTACTING PAYPAL:_");
-		System.out.println("SIGNING IN USING ONE TOUCH AUTHORITY:_");
-		System.out.println("PURCHASING NEW JET FROM ANONYMOUS SOURCES USING BITCOIN:_");
+		System.out.println("WELCOME TO THE SILK ROAD MILITARY AIRCRAFT SURPLUS.");
+		System.out.println("THIS SITE USES COOKIES TO ENHANCE YOUR EXPERIENCE.");
+		System.out.println("IF YOU DO NOT CONSENT TO THE USE OF COOKIES WE SUGGEST YOU CLOSE YOUR TEXT BROWSER NOW.");
+		
+		System.out.println("******************************");
+		System.out.println("ENTER AIRCRAFT CLASSIFICATION: [F]IGHTER/[C]ARGO_");
 		JetImpl generic = new JetImpl("GENERIC", "Some_Fighter", 200, 400, 100000, 2, 10000);
+		Scanner input = new Scanner(System.in);
+		String inputChecked = input.next(); 
+		switch (inputChecked) {
+		case "F":
+		case "f":
+			generic.setId("FIGHTER");
+			break;
+		case "C":
+		case "c":
+			generic.setId("CARGO");
+			break; 
+			}
+		System.out.println("ENTER AIRCRAFT MODEL DESCRIPTION (NO SPACES, USE '_' FOR CONCATINATION) :_ ");
+		generic.setModel(input.next());
+		System.out.println("ENTER AIRCRAFT MAXIMUM SPEED (MPH):_");
+		generic.setSpeed(input.nextInt());
+		System.out.println("ENTER AIRCRAFT MAXIMUM RANGE (nMILES):_ ");
+		generic.setRange(input.nextInt());
+		System.out.println("ENTER AIRCRAFT UNIT PRICE (U.S.D.):_");
+		generic.setRange(input.nextInt());
+		System.out.println("ENTER AIRCRAFT NUMBER OF CREW:_");
+		generic.setCrew(input.nextInt());
+		System.out.println("ENTER AIRCRAFT LOAD CAPACITY (LBS):_ ");
+		generic.setCapacity(input.nextInt());
+		
 		AirField.atAirField.add(generic);
-		System.out.println("PURCHASE COMPLETE. PURCHASE NEVER HAPPENED.");
+		System.out.println("LOCATING PARKING...PARKING LOCATED.");
+	}
 //		Stretch Goal: This leads to a sub-menu where the user chooses the type of Jet.
 //		Users then enter information for the Jet, and it is added to the AirField.
 
-	}
 
 	private static void remFleetJet() {
 
@@ -182,8 +210,8 @@ public class JetsApplication {
 //		The user is presented with a sub-menu to select a jet to delete by number.
 //		
 		Scanner input = new Scanner(System.in);
-		System.out.println("Select a hangar number to remove from FLEET:_");
 		listFleet();
+		System.out.println("Select a hangar number to remove from FLEET:_");
 
 		try {
 			int removalSelection = (input.nextInt() - 1);

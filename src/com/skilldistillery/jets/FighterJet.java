@@ -9,12 +9,19 @@ public class FighterJet extends Jet implements CombatReady {
 	
 	@Override	
 	public void dogFight() {
-		System.out.println(this.getModel() + " COPY VECTOR, CHECK YOUR VECTOR VICTOR, ROGER VICTOR, VECTOR CHANGED TO VICTOR VECTOR.");
+		System.out.println(this.getModel() + " engaging new vector...");
+		System.out.println();
+		System.out.println(" COPY VECTOR, CHECK YOUR VECTOR VICTOR, ROGER VICTOR, VECTOR CHANGED TO VICTOR VECTOR.");
+		System.out.println();
+		System.out.println();
 		System.out.println("PEW PEW PEW!");
 		System.out.println("PEW PEW PEW!");
 		System.out.println("PEW PEW PEW!");
 		System.out.println("PEW PEW PEW!");
-		
+		System.out.println();
+		System.out.println();
+		System.out.println("EJECT MAILMAN!");
+		System.out.println();
 	}
 }
 

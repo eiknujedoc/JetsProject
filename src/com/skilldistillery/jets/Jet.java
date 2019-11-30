@@ -97,10 +97,13 @@ public abstract class Jet {
 		
 		System.out.println();
 		System.out.println("Hangar " + (AirField.atAirField.indexOf(this) + 1) +":" );
-		System.out.println(model);
-		System.out.println(speed);
-		System.out.println(range);
-		System.out.println(price);
+		System.out.println("CLASSIFICATION: " + this.getId());
+		System.out.println("MODEL: " + this.getModel());
+		System.out.println("MAX SPEED: " + this.getSpeed() + " MPH");
+		System.out.println("MAX RANGE: " + this.getRange() + " nMILES");
+		System.out.println("UNIT PRICE: " + this.getPrice() + " U.S.D.");
+		System.out.println("CREW: " + this.getCrew());
+		System.out.println("CAPACITY/LOAD: " + this.getCapacity());
 		System.out.println();
 		
 	}
@@ -111,8 +114,8 @@ public abstract class Jet {
 //			can fly until it runs out of fuel (based on speed and range).
 		System.out.println();
 		System.out.println("Model: " + model);
-		System.out.println("Maximum Speed: " + speed);
-		System.out.println("Maximum Range: " + range);
+		System.out.println("Maximum Speed: " + speed + " MPH");
+		System.out.println("Maximum Range: " + range + " nMiles");
 		System.out.println("Initiating Mission Parameters: PLEASE STANDBY_");
 		for (int i = 0; i < 100000; i++) {
 			for (int j = 0; j <= i; j++)
