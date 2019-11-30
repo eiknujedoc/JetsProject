@@ -3,14 +3,11 @@
 
 package com.skilldistillery.jets;
 
-import java.util.LinkedList;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class AirField {
 
@@ -26,7 +23,7 @@ public class AirField {
 
 	public static List<Jet> atAirField = new ArrayList<>(); // create a new list of Jet objects located at AirField
 
-	protected static void populateAirField(Jet Jet) {
+	static void populateAirField(Jet Jet) {
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader("Jets.txt"));
@@ -58,7 +55,7 @@ public class AirField {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-
+			
 		}
 	}
 

@@ -59,12 +59,13 @@ public class JetsApplication {
 				dogFightJets();
 				break;
 			case 7:
-				addFleetJet();
+				addFleetJet(input);
 				break;
 			case 8:
-				remFleetJet();
+				remFleetJet(input);
 				break;
 			case 9:
+				input.close();
 				exit(0);
 			}
 		} while (running = true);
@@ -156,7 +157,7 @@ public class JetsApplication {
 		
 	}
 
-	private static void addFleetJet() {
+	private static void addFleetJet(Scanner input) {
 
 //		User Story #9
 //
@@ -170,7 +171,6 @@ public class JetsApplication {
 		System.out.println("******************************");
 		System.out.println("ENTER AIRCRAFT CLASSIFICATION: [F]IGHTER/[C]ARGO_");
 		JetImpl generic = new JetImpl("GENERIC", "Some_Fighter", 200, 400, 100000, 2, 10000);
-		Scanner input = new Scanner(System.in);
 		String inputChecked = input.next(); 
 		switch (inputChecked) {
 		case "F":
@@ -202,14 +202,13 @@ public class JetsApplication {
 //		Users then enter information for the Jet, and it is added to the AirField.
 
 
-	private static void remFleetJet() {
+	private static void remFleetJet(Scanner input) {
 
 //		User Story #10
 //
 //		A user can remove a jet from the fleet.
 //		The user is presented with a sub-menu to select a jet to delete by number.
 //		
-		Scanner input = new Scanner(System.in);
 		listFleet();
 		System.out.println("Select a hangar number to remove from FLEET:_");
 
