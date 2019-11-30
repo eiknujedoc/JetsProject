@@ -1,5 +1,0 @@
-001	Lockheed_Martin_F22_Raptor	1500	1841	150000000
-002	Boeing_F/A-18E/F_Superhornet	1190	1275	70500000
-003	Grumman_F-14_Tomcat	1544	580	38000000
-004	General_Dynamics_F-16_Fighting_Falcon	915	339	14600000
-005	McDonnell_Douglas_F-16_Eagle	1650	1221	27900000

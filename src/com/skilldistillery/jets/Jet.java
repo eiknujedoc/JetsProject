@@ -7,19 +7,83 @@ import java.text.DecimalFormat;
 
 public abstract class Jet {
 
+	public String getId() {
+		return id;
+	}
+
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+
+	public String getModel() {
+		return model;
+	}
+
+
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+
+
+	public double getSpeed() {
+		return speed;
+	}
+
+
+
+	public void setSpeed(double speed) {
+		this.speed = speed;
+	}
+
+
+
+	public int getRange() {
+		return range;
+	}
+
+
+
+	public void setRange(int range) {
+		this.range = range;
+	}
+
+
+
+	public long getPrice() {
+		return price;
+	}
+
+
+
+	public void setPrice(long price) {
+		this.price = price;
+	}
+
+
+
 	private String id;
 	protected String model;
 	private double speed;
 	private int range;
 	private long price;
+	private int crew;
+	private double capacity;
 
-	public Jet(String id, String model, double speed, int range, long price) {
+	public Jet(String id, String model, double speed, int range, long price, int crew, double capacity) {
 		super();
 		this.id = (id);
 		this.model = (model);
 		this.speed = speed;
 		this.range = range;
 		this.price = price;
+		this.setCrew(crew);
+		this.setCapacity(capacity);
 	}
 
 
@@ -63,11 +127,33 @@ public abstract class Jet {
 
 
 
-	public static void dogFight() {
+	public int getCrew() {
+		return crew;
+	}
+
+
+
+	public void setCrew(int crew) {
+		this.crew = crew;
+	}
+
+
+
+	public double getCapacity() {
+		return capacity;
+	}
+
+
+
+	public void setCapacity(double capacity) {
+		this.capacity = capacity;
+	}
+
+
+
 		// TODO Auto-generated method stub
 	}
 
 		
-	}
 	
 

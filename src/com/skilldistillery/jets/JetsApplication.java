@@ -15,24 +15,25 @@ import java.util.Scanner;
 public class JetsApplication {
 
 	public static void main(String[] args) { // USER STORY 1
-		AirField.listFighterJetatAirField(null);
-		AirField.listCargoJetatAirField(null);
+		AirField.populateAirField(null);
 		menu();
 
 	}
-		// USER STORY 4
-	public static void menu() {	
+
+	// USER STORY 4
+	public static void menu() {
 		boolean running = true;
 		do {
 
 			System.out.println("1. List Fleet ");
 			System.out.println("2. Fly all jets ");
 			System.out.println("3. View fastest jet ");
-			System.out.println("4. Load all Cargo Jets ");
-			System.out.println("5. Dogfight! ");
-			System.out.println("6. Add a jet to Fleet ");
-			System.out.println("7. Remove a jet from Fleet ");
-			System.out.println("8. Quit ");
+			System.out.println("4. View jet with the longest range ");
+			System.out.println("5. Load all Cargo Jets ");
+			System.out.println("6. Dogfight! ");
+			System.out.println("7. Add a jet to Fleet ");
+			System.out.println("8. Remove a jet from Fleet ");
+			System.out.println("9. Quit ");
 			System.out.println();
 
 			Scanner input = new Scanner(System.in);
@@ -49,21 +50,22 @@ public class JetsApplication {
 				viewFastestJet();
 				break;
 			case 4:
-				loadAllCargoJets();
+				viewLongestRangeJet();
 				break;
 			case 5:
-				dogFightJets();
+				loadAllCargoJets(0);
 				break;
 			case 6:
-				addFleetJet();
+				dogFightJets();
 				break;
 			case 7:
-				remFleetJet();
+				addFleetJet();
 				break;
 			case 8:
-				exit(0);
+				remFleetJet();
 				break;
-
+			case 9:
+				exit(0);
 			}
 		} while (running = true);
 	}
@@ -94,33 +96,79 @@ public class JetsApplication {
 //		The view fastest jet and longest range options both print out all of the information about a jet.
 //
 //		Note: these methods must search the collection of jets to find the appropriate jet.
+		Jet fastestJet = null;
+		for (int i = 0; i < AirField.atAirField.size(); i++) {
+			if (i == 0) {
+				fastestJet = AirField.atAirField.get(i);
 
+			} else {
+
+				if (fastestJet.getSpeed() < AirField.atAirField.get(i).getSpeed()) {
+					fastestJet = AirField.atAirField.get(i);
+				}
+			}
+		}
+		System.out.println("The fastest jet in FLEET is:_");
+		fastestJet.radioCheck();
 	}
 
 	private static void viewLongestRangeJet() {
 
+		Jet furthestJet = null;
+		for (int i = 0; i < AirField.atAirField.size(); i++) {
+			if (i == 0) {
+				furthestJet = AirField.atAirField.get(i);
+
+			} else {
+
+				if (furthestJet.getSpeed() < AirField.atAirField.get(i).getRange()) {
+					furthestJet = AirField.atAirField.get(i);
+				}
+			}
+		}
+		System.out.println("The jet with the greatest range in FLEET is:_");
+		furthestJet.radioCheck();
+
 	}
 
-	private static void loadAllCargoJets() {
-	
-	}
+	private static void loadAllCargoJets(int CargoPlane) {
+		
+		
+		for (int i = 0; i < AirField.atAirField.size(); i++) {
+			if(AirField.atAirField.get(i) instanceof CargoCarrier)
+			{
+				CargoPlane cargoJetToLoad = null;
+				cargoJetToLoad = (CargoPlane) AirField.atAirField.get(i);
+				cargoJetToLoad.loadCargo();
+			}
+			
+			}
+		}
 
 	private static void dogFightJets() {
+		
 		for (int j = 0; j < AirField.atAirField.size(); j++) {
-			Jet.dogFight();
-		}
+			if (AirField.atAirField.get(j) instanceof FighterJet) {
+				FighterJet Maverick = (FighterJet) AirField.atAirField.get(j);
+				Maverick.dogFight();
+			}
+				}
+		
 	}
 
-	 private static void addFleetJet() {
+	private static void addFleetJet() {
 
 //		User Story #9
 //
 //		A user can add custom jets to the fleet.
 //
 //		This can be a JetImpl.
-		FighterJet generic = new FighterJet("GENERIC", "Some_Fighter", 200, 400, 100000);
+		System.out.println("CONTACTING PAYPAL:_");
+		System.out.println("SIGNING IN USING ONE TOUCH AUTHORITY:_");
+		System.out.println("PURCHASING NEW JET FROM ANONYMOUS SOURCES USING BITCOIN:_");
+		JetImpl generic = new JetImpl("GENERIC", "Some_Fighter", 200, 400, 100000, 2, 10000);
 		AirField.atAirField.add(generic);
-		
+		System.out.println("PURCHASE COMPLETE. PURCHASE NEVER HAPPENED.");
 //		Stretch Goal: This leads to a sub-menu where the user chooses the type of Jet.
 //		Users then enter information for the Jet, and it is added to the AirField.
 
@@ -136,47 +184,42 @@ public class JetsApplication {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Select a hangar number to remove from FLEET:_");
 		listFleet();
-		
+
 		try {
 			int removalSelection = (input.nextInt() - 1);
-			if(removalSelection > (AirField.atAirField.size()) | removalSelection <= 1) {
-			System.out.println("INVALID SELECTION");
-			System.out.println("Returning to FLEET MENU");
-			menu();
-			}
-			else {
-				Jet removed = AirField.atAirField.get(removalSelection);
-			System.out.println("Remove " + removed.model + " from FLEET?_ \n\nTHIS CAN NOT BE UNDONE.\n\n TYPE 'YES' TO CONFIRM.");
-			String confirm = input.next();
-			if (confirm.equals("YES")) {
-			AirField.atAirField.remove(removalSelection);
-			System.out.println("Removed " + removed.model + " from FLEET.");
-			menu();
-			}
-			else {
+			if (removalSelection > (AirField.atAirField.size()) | removalSelection <= 1) {
+				System.out.println("INVALID SELECTION");
+				System.out.println("Returning to FLEET MENU");
 				menu();
+			} else {
+				Jet removed = AirField.atAirField.get(removalSelection);
+				System.out.println("Remove " + removed.model
+						+ " from FLEET?_ \n\nTHIS CAN NOT BE UNDONE.\n\n TYPE 'YES' TO CONFIRM.");
+				String confirm = input.next();
+				if (confirm.equals("YES")) {
+					AirField.atAirField.remove(removalSelection);
+					System.out.println("Removed " + removed.model + " from FLEET.");
+					menu();
+				} else {
+					menu();
+				}
 			}
-			}
-			}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			System.out.println("Returning to FLEET MENU");
-			
+
 		}
-		
-		
-		
+
 //		Stretch Goal: a user can remove a jet (or jets) by name.
 
 	}
 
-		public static void exit(int status) {
-			
+	public static void exit(int status) {
+
 //		User Story #11
 //
 //		Quit exits the program.
-			Runtime.getRuntime().exit(0);
+		Runtime.getRuntime().exit(0);
 	}
 }
