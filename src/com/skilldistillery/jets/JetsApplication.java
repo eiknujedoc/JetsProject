@@ -163,22 +163,32 @@ public class JetsApplication {
 //
 //		A user can add custom jets to the fleet.
 //
-//		This can be a JetImpl.
 		System.out.println("WELCOME TO THE SILK ROAD MILITARY AIRCRAFT SURPLUS.");
 		System.out.println("THIS SITE USES COOKIES TO ENHANCE YOUR EXPERIENCE.");
 		System.out.println("IF YOU DO NOT CONSENT TO THE USE OF COOKIES WE SUGGEST YOU CLOSE YOUR TEXT BROWSER NOW.");
 		
 		System.out.println("******************************");
+		System.out.println();
 		System.out.println("ENTER AIRCRAFT CLASSIFICATION: [F]IGHTER/[C]ARGO_");
-		JetImpl generic = new JetImpl("GENERIC", "Some_Fighter", 200, 400, 100000, 2, 10000);
+//		This can be a JetImpl.
+		JetImpl generic = new JetImpl(null, null, 0, 0, 0, 0, 0);
+
 		String inputChecked = input.next(); 
 		switch (inputChecked) {
 		case "F":
 		case "f":
+		case "FIGHTER":
+		case "fighter":
+		case "Fighter":
+		case "fIGHTER":
 			generic.setId("FIGHTER");
 			break;
 		case "C":
 		case "c":
+		case "CARGO":
+		case "cargo":
+		case "Cargo":
+		case "cARGO":
 			generic.setId("CARGO");
 			break; 
 			}
@@ -195,7 +205,9 @@ public class JetsApplication {
 		System.out.println("ENTER AIRCRAFT LOAD CAPACITY (LBS):_ ");
 		generic.setCapacity(input.nextInt());
 		
-		AirField.atAirField.add(generic);
+		{
+			AirField.atAirField.add(generic);
+		}
 		System.out.println("LOCATING PARKING...PARKING LOCATED.");
 	}
 //		Stretch Goal: This leads to a sub-menu where the user chooses the type of Jet.
