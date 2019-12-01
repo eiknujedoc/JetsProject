@@ -14,11 +14,10 @@ with a menu that allows various interactions with the Air Field and the fleet of
 * Using ArrayList<>
 * Searching lists
 * Populating fields from .txt files
-* Calling constructors
-* Using Getters and Setters
+* Encapsulation
+* Polymorphism
 * Adding/Removing objects from an ArrayList<>
 * Using BufferReader and FileReader
-* Exposure to Interfaces and super()
 * String.split(); and .split groups
 
 ## The `List` Interface
@@ -39,7 +38,21 @@ Since `List` is an interface, we instantiate an implementing class.
 
 * `LinkedList` and `Vector` are other classes that implement `List`.
 
-![List implementation classes](images/list.png)
+## Encapsulation
+
+### Objectives
+
+* Use constructors to give data to object fields.
+* Control the visibility of data members and methods.
+* Understand the purpose of the `this` keyword.
+* Practice good encapsulation.
+
+## Polymorphism and Overriding
+In this chapter we will learn about another pillar of object-oriented programming, _polymorphism_, which allows us to give subclasses specialized behavior, but still inherit behavior from superclasses.
+
+### Objectives
+* Use superclass references for subclass objects.
+* Understand, recognize, and be able to use method overriding.
 
 
 
